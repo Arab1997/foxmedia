@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/dashboard"
+            android:title="@string/dashboard" />
+       <!-- <item
+            android:id="@+id/myCoursesFragment"
+            android:icon="@drawable/my_courses"
+            android:title="@string/my_courses" />-->
+        <item
+            android:id="@+id/wishlistFragment"
+            android:icon="@drawable/wishlist"
+            android:title="@string/wishlist" />
+
+        <item
+            android:id="@+id/accountFragment"
+            android:icon="@drawable/account"
+            android:title="@string/account" />
+    </group>
+</menu>

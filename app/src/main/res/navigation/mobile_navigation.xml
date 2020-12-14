@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="uz.napa.foxmedia.ui.fragment.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_nav_home_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/scale_down_to_left"
+            app:popEnterAnim="@anim/scale_up_to_right"
+            app:popExitAnim="@anim/to_right">
+            <argument
+                android:name="categoryId"
+                app:argType="long" />
+        </action>
+        <action
+            android:id="@+id/action_nav_home_to_courseFragment"
+            app:destination="@id/courseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+        <action
+            android:id="@+id/action_nav_home_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.category.CategoryFragment"
+        android:label="CategoryFragment">
+        <argument
+            android:name="categoryId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_categoryFragment_to_subcategoryFragment"
+            app:destination="@id/subcategoryFragment">
+            <argument
+                android:name="subcategory"
+                app:argType="uz.napa.foxmedia.response.category.Subcategory" />
+        </action>
+        <action
+            android:id="@+id/action_categoryFragment_to_courseFragment"
+            app:destination="@id/courseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/subcategoryFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.subcategory.SubcategoryFragment"
+        android:label="SubcategoryFragment">
+        <argument
+            android:name="subcategory"
+            app:argType="uz.napa.foxmedia.response.category.Subcategory" />
+        <action
+            android:id="@+id/action_subcategoryFragment_to_courseFragment"
+            app:destination="@id/courseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/courseFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.course.CourseFragment"
+        android:label="CourseFragment">
+        <argument
+            android:name="course"
+            app:argType="uz.napa.foxmedia.response.course.Course" />
+        <action
+            android:id="@+id/action_courseFragment_to_purchaseFragment"
+            app:destination="@id/purchaseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.account.AccountFragment"
+        android:label="AccountFragment" />
+    <fragment
+        android:id="@+id/myCoursesFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.mycourses.MyCoursesFragment"
+        android:label="MyCoursesFragment">
+        <action
+            android:id="@+id/action_myCoursesFragment_to_courseFragment"
+            app:destination="@id/courseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/wishlistFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.wishlist.WishlistFragment"
+        android:label="WishlistFragment">
+        <action
+            android:id="@+id/action_wishlistFragment_to_courseFragment"
+            app:destination="@id/courseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.search.SearchFragment"
+        android:label="SearchFragment">
+        <action
+            android:id="@+id/action_searchFragment_to_courseFragment"
+            app:destination="@id/courseFragment">
+            <argument
+                android:name="course"
+                app:argType="uz.napa.foxmedia.response.course.Course" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.purchase.PurchaseFragment"
+        android:label="PurchaseFragment">
+        <argument
+            android:name="course"
+            app:argType="uz.napa.foxmedia.response.course.Course" />
+    </fragment>
+</navigation>

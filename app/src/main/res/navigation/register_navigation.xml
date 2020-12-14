@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/register_navigation"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.login.LoginFragment"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/action_registerFragment_to_fragmentLanguage2"
+            app:destination="@id/fragmentLanguage" />
+        <action
+            android:id="@+id/action_registerFragment_to_registerFragment2"
+            app:destination="@id/registerFragment2" />
+        <action
+            android:id="@+id/action_registerFragment_to_restoreFragment"
+            app:destination="@id/restoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.login.confirm.ConfirmFragment"
+        android:label="ConfirmFragment">
+        <argument
+            android:name="phoneNum"
+            app:argType="long" />
+        <argument
+            android:name="fragmentName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_confirmFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" >
+            <argument
+                android:name="tempPassword"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLanguage"
+        android:name="uz.napa.foxmedia.ui.language.FragmentLanguage"
+        android:label="FragmentLanguage" />
+    <fragment
+        android:id="@+id/registerFragment2"
+        android:name="uz.napa.foxmedia.ui.fragment.login.register.RegisterFragment"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/action_registerFragment2_to_confirmFragment"
+            app:destination="@id/confirmFragment">
+            <argument
+                android:name="phoneNum"
+                app:argType="long" />
+            <argument
+                android:name="fragmentName"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/restoreFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.login.restore.RestoreFragment"
+        android:label="RestoreFragment">
+        <action
+            android:id="@+id/action_restoreFragment_to_confirmFragment"
+            app:destination="@id/confirmFragment">
+            <argument
+                android:name="phoneNum"
+                app:argType="long" />
+            <argument
+                android:name="fragmentName"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="uz.napa.foxmedia.ui.fragment.login.reset.ResetPasswordFragment"
+        android:label="ResetPasswordFragment" >
+        <argument
+            android:name="tempPassword"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/register_navigation" />
+    </fragment>
+</navigation>

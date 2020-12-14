@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_video_background"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/video_thumbnail"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tv_video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/video_thumbnail"
+            android:layout_alignBottom="@id/video_thumbnail"
+            android:background="@color/lightGreyTransparent"
+            android:layout_margin="10dp"
+            android:padding="2dp"
+            android:textColor="@color/white"
+            tools:text="9:02:54" />
+
+        <TextView
+            android:id="@+id/video_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/video_thumbnail"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_bold"
+            android:maxLines="3"
+            android:layout_alignParentEnd="true"
+            android:textSize="18sp"
+            tools:text="Video name ideo nameideo nameideo name " />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/video_rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/video_name"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/video_thumbnail"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:theme="@style/RatingBar" />
+
+        <TextView
+            android:id="@+id/tv_is_free"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/video_name"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/video_rating"
+            android:fontFamily="@font/open_sans_regular"
+            android:visibility="gone"
+            android:gravity="end|bottom"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text="@string/free"
+            android:textColor="@color/green" />
+
+    </RelativeLayout>
+</LinearLayout>
+
+
